@@ -20,7 +20,7 @@ int main(){
 	for(int j=0;j<p;++j){
 		cin>>domain[j];
 		int machines; cin>>machines;
-		pri[j]=machines;
+		pri[j]=machines+10000;
 		for(int x=0;x<machines;++x){
 			string s; cin>>s;
 			vv[j].insert(make_pair(x,s));
