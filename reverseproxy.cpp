@@ -15,7 +15,7 @@ int main(){
 	set<pair<int,string> >  vv[p];
 	set<pair<string,int> >  vv2[p];
 	map<string, int> mm;
-	int pri[p];
+	long long pri[p];
 	vector<set<pair<int,string> > > res(p);
 	for(int j=0;j<p;++j){
 		cin>>domain[j];
@@ -46,7 +46,7 @@ int main(){
 			if(s.find(machine_up)!=string::npos){
 				vv[bb].insert(make_pair(pri[bb]-1,ip));
 				vv2[bb].insert(make_pair(ip,pri[bb]-1));
-				pri[bb]++;
+				pri[bb]+=10000;
 				continue;
 			}
 			auto it=lower_bound(vv2[bb].begin(),vv2[bb].end(),make_pair(ip,-1));
