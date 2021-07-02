@@ -422,6 +422,20 @@ struct node{
   node():x(0),y(0),z(0),p(0){}
   node(int xx,int yy,int zz,int pp):x(xx),y(yy),z(zz),p(pp){}
 };
+
+//Gaussian Elimmination
+void f(ull bit[], ull val){
+    for(int j=63;j>=0;--j){
+        ull x = pow(2,j);
+        if(x&val){
+            if(!bit[j]){
+                bit[j] = val;
+                return;
+            }
+            val=(val^bit[j]);
+        }
+    }
+}
 int main()
 {
   char c; cin>>c;
