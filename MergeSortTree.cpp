@@ -3,6 +3,16 @@ public:
     
     //Generalize Merge Sort Tree Implementation
     // https://leetcode.com/problems/count-number-of-rectangles-containing-each-point/
+    
+    
+    // Constraints:
+
+    // 1 <= rectangles.length, points.length <= 5 * 104
+    // rectangles[i].length == points[j].length == 2
+    // 1 <= li, xj <= 1e9
+    // 1 <= hi, yj <= 1e9. .... /**Extended constraints.**/
+    // All the rectangles are unique.
+    // All the points are unique.
     vector<pair<int, int> > vv[1000000];
     void build(vector<pair<int,int> > &v, int st, int en, int ind){
         if(st==en){
@@ -23,8 +33,7 @@ public:
             return 0;
         }
         if(st>=l1&&en<=r1){
-            int in = lower_bound(vv[ind].begin(), vv[ind].end(), make_pair(val, 0)) - vv[ind].begin();
-            return vv[ind].size()-in;
+            return vv[ind].size() - (lower_bound(vv[ind].begin(), vv[ind].end(), make_pair(val, 0)) - vv[ind].begin());
         }
         int mid = (st+en)/2;
         return f(st, mid, l1, r1, 2*ind, val) + f(mid+1, en, l1, r1, 2*ind+1, val);
